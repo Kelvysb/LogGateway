@@ -1,0 +1,34 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:55265",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "LogGateway": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "SERILOG__MINIMUMLEVEL": "Debug",
+        "LOG_GATEWAY_PORT": "5663"
+      },
+      "applicationUrl": "http://localhost:5252",
+      "launchUrl": "swagger/index.html",
+      "dotnetRunMessages": true
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger/index.html",
+      "publishAllPorts": true,
+      "environmentVariables": {
+        "SERILOG__MINIMUMLEVEL": "Debug",
+        "LOG_GATEWAY_PORT": "5663"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+﻿version: "3"
+services:
+    log_gateway:
+        image: kelvysb/loggateway:latest
+        hostname: Log_Gateway
+        container_name: Log_Gateway
+        restart: always
+        expose:
+          - "${LOG_GATEWAY_PORT:-5663}"
+        ports:
+          - "${LOG_GATEWAY_PORT:-5663}:${LOG_GATEWAY_PORT:-5663}"
+        networks:
+          - local
+        environment:
+          - LOG_GATEWAY_PORT=${LOG_GATEWAY_PORT:-5663}
+          - SERILOG__MINIMUMLEVEL=Debug
+          - ELASTIC_URL=$ELASTIC_URL
+          - ELASTIC_USER=$ELASTIC_USER
+          - ELASTIC_PASSWORD=$ELASTIC_PASSWORD
+
+networks:
+    local:
+        driver: bridge
